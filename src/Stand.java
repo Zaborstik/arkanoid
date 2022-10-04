@@ -1,6 +1,13 @@
-package com.javarush.task.task24.task2413;
+package src;
 
 public class Stand extends BaseObject{
+    private static int[][] matrix = {
+            {1, 1, 1, 1, 1},
+            {1, 0, 0, 0, 1},
+            {0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0},
+    };
     private double speed;
     private double direction;
     public Stand(double x, double y) {
@@ -27,12 +34,14 @@ public class Stand extends BaseObject{
 
     @Override
     public void draw(Canvas canvas) {
-
+        canvas.drawMatrix(x - radius + 1, y, matrix, 'M');
     }
 
     @Override
     public void move() {
         x = direction*speed + x;
+
+        checkBorders(radius, Arkanoid.game.getWidth() - radius + 1, 1, Arkanoid.game.getHeight() + 1);
     }
 
     public void moveLeft(){

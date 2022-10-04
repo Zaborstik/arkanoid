@@ -1,4 +1,4 @@
-package com.javarush.task.task24.task2413;
+package src;
 
 public abstract class BaseObject {
     protected double x;
@@ -38,6 +38,13 @@ public abstract class BaseObject {
     abstract void draw(Canvas canvas);
 
     abstract void move();
+
+    void checkBorders(double minx, double maxx, double miny, double maxy) {
+        if (x < minx) x = minx;
+        if (x > maxx) x = maxx;
+        if (y < miny) y = miny;
+        if (y > maxy) y = maxy;
+    }
 
     boolean intersects(BaseObject o) {
         double dx = x - o.x;

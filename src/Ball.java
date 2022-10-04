@@ -1,4 +1,4 @@
-package com.javarush.task.task24.task2413;
+package src;
 
 public class Ball extends BaseObject{
     private double speed;
@@ -44,7 +44,25 @@ public class Ball extends BaseObject{
     }
 
     public void checkRebound(int minx, int maxx, int miny, int maxy){
-        
+        if (x < minx) {
+            x = minx + (minx - x);
+            dx = -dx;
+        }
+
+        if (x > maxx) {
+            x = maxx - (x - maxx);
+            dx = -dx;
+        }
+
+        if (y < miny) {
+            y = miny + (miny - y);
+            dy = -dy;
+        }
+
+        if (y > maxy) {
+            y = maxy - (y - maxy);
+            dy = -dy;
+        }
     }
 
     public void setDx(double dx) {
@@ -56,7 +74,8 @@ public class Ball extends BaseObject{
     }
 
     public void start(){
-        isFrozen = false;
+        this.setDirection(direction);
+        this.isFrozen = false;
     }
 
     @Override
@@ -69,6 +88,9 @@ public class Ball extends BaseObject{
         if (!isFrozen){
             x = x+dx;
             y = y+dy;
+
+            checkRebound(1, Arkanoid.game.getWidth(), 1, Arkanoid.game.getHeight() + 5);
         }
     }
+
 }

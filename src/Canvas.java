@@ -1,4 +1,4 @@
-package com.javarush.task.task24.task2413;
+package src;
 
 public class Canvas {
     private int width;
@@ -46,6 +46,9 @@ public class Canvas {
             }
             System.out.println();
         }
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 
     public void setPoint(double x, double y, char c){
