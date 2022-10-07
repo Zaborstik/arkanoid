@@ -137,7 +137,6 @@ public class Arkanoid {
     }
 
     private void drawBorders(Canvas canvas) {
-        // draw game
         for (int i = 0; i < width + 2; i++) {
             for (int j = 0; j < height + 2; j++) {
                 canvas.setPoint(i, j, '.');
